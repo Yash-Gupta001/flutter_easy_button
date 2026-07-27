@@ -11,3 +11,7 @@
 ## 1.0.1
 
 - Fixed issue for color changing during loading.
+
+## 1.0.2
+
+- Made textColor parameter required.

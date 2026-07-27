@@ -17,8 +17,8 @@ class CustomFilledButton extends StatelessWidget {
 
   /// Color of the button text.
   ///
-  /// Defaults to [loadingColor] if not provided.
-  final Color? textColor;
+  /// Color of the button text/icon. Required.
+  final Color textColor;
 
   /// Background color of the button. Required.
   final Color buttonColor;
@@ -58,7 +58,7 @@ class CustomFilledButton extends StatelessWidget {
     this.buttonTextId,
     this.icon,
     this.iconSize = 18,
-    this.textColor,
+    required this.textColor,
     this.isLoading = false,
     this.isFullWidth = false,
     this.isDisabled = false,
@@ -67,16 +67,14 @@ class CustomFilledButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Color txtColor = textColor ?? loadingColor;
-
     return SizedBox(
       width: isFullWidth ? double.infinity : null,
       child: FilledButton(
         style: FilledButton.styleFrom(
           backgroundColor: buttonColor,
-          foregroundColor: loadingColor,
+          foregroundColor: textColor,
           disabledBackgroundColor: isLoading ? buttonColor : null,
-          disabledForegroundColor: isLoading ? loadingColor : null,
+          disabledForegroundColor: isLoading ? textColor : null,
         ),
         onPressed: (isLoading || isDisabled) ? null : onPressed,
         child: isLoading
@@ -88,13 +86,13 @@ class CustomFilledButton extends StatelessWidget {
                     width: 20,
                     child: CircularProgressIndicator(
                       strokeWidth: 2,
-                      color: txtColor,
+                      color: loadingColor,
                     ),
                   ),
                   const SizedBox(width: 10),
                   Text(
                     loadingText,
-                    style: TextStyle(color: txtColor),
+                    style: TextStyle(color: textColor),
                   ),
                 ],
               )
@@ -105,7 +103,7 @@ class CustomFilledButton extends StatelessWidget {
                     Icon(
                       icon,
                       size: iconSize.toDouble(),
-                      color: txtColor,
+                      color: textColor,
                     ),
                     const SizedBox(width: 8),
                   ],
@@ -114,7 +112,7 @@ class CustomFilledButton extends StatelessWidget {
                       buttonText,
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
-                      style: TextStyle(color: txtColor),
+                      style: TextStyle(color: textColor),
                     ),
                   ),
                 ],
