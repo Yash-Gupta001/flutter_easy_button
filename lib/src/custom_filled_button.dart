@@ -1,29 +1,64 @@
 import 'package:flutter/material.dart';
 
+/// A customizable Material 3 filled button.
+///
+/// Supports:
+/// - Loading state
+/// - Disabled state
+/// - Optional leading icon
+/// - Full-width layout
+/// - Custom colors
 class CustomFilledButton extends StatelessWidget {
+  /// Text displayed inside the button.
   final String buttonText;
+
+  /// Optional identifier that can be used for localization.
   final String? buttonTextId;
+
+  /// Color of the button text.
+  ///
+  /// Defaults to [loadingColor] if not provided.
   final Color? textColor;
-  final Color? backgroundColor;
-  final Color? foregroundColor;
+
+  /// Background color of the button. Required.
+  final Color buttonColor;
+
+  /// Color used for the loading indicator and as the fallback
+  /// text/icon color. Required.
+  final Color loadingColor;
+
+  /// Displays a loading indicator when set to `true`.
   final bool isLoading;
+
+  /// Expands the button to fill the available width.
   final bool isFullWidth;
+
+  /// Disables the button when set to `true`.
   final bool isDisabled;
+
+  /// Callback invoked when the button is pressed.
   final VoidCallback onPressed;
+
+  /// Size of the optional leading icon.
   final int iconSize;
+
+  /// Optional leading icon displayed before the button text.
   final IconData? icon;
+
+  /// Text displayed while the button is in the loading state.
   final String loadingText;
 
+  /// Creates a customizable Material 3 filled button.
   const CustomFilledButton({
     super.key,
     required this.buttonText,
     required this.onPressed,
+    required this.buttonColor,
+    required this.loadingColor,
     this.buttonTextId,
     this.icon,
     this.iconSize = 18,
-    this.backgroundColor,
     this.textColor,
-    this.foregroundColor,
     this.isLoading = false,
     this.isFullWidth = false,
     this.isDisabled = false,
@@ -32,20 +67,16 @@ class CustomFilledButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Color bgColor =
-        backgroundColor ?? Theme.of(context).colorScheme.primary;
-
-    final Color fgColor =
-        foregroundColor ?? Theme.of(context).colorScheme.onPrimary;
-
-    final Color txtColor = textColor ?? fgColor;
+    final Color txtColor = textColor ?? loadingColor;
 
     return SizedBox(
       width: isFullWidth ? double.infinity : null,
       child: FilledButton(
         style: FilledButton.styleFrom(
-          backgroundColor: bgColor,
-          foregroundColor: fgColor,
+          backgroundColor: buttonColor,
+          foregroundColor: loadingColor,
+          disabledBackgroundColor: isLoading ? buttonColor : null,
+          disabledForegroundColor: isLoading ? loadingColor : null,
         ),
         onPressed: (isLoading || isDisabled) ? null : onPressed,
         child: isLoading
@@ -61,7 +92,10 @@ class CustomFilledButton extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(width: 10),
-                  Text(loadingText),
+                  Text(
+                    loadingText,
+                    style: TextStyle(color: txtColor),
+                  ),
                 ],
               )
             : Row(
