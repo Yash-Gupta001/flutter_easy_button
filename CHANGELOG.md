@@ -1,3 +1,9 @@
-## 0.0.1
+## 1.0.0
 
-* TODO: Describe initial release.
+- Initial release.
+- Added `CustomFilledButton`.
+- Supports loading state.
+- Supports disabled state.
+- Supports optional icons.
+- Supports full-width layout.
+- Customizable colors.
