@@ -7,3 +7,7 @@
 - Supports optional icons.
 - Supports full-width layout.
 - Customizable colors.
+
+## 1.0.1
+
+- Fixed issue for color changing during loading.
