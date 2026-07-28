@@ -23,10 +23,6 @@ class CustomFilledButton extends StatelessWidget {
   /// Background color of the button. Required.
   final Color buttonColor;
 
-  /// Color used for the loading indicator and as the fallback
-  /// text/icon color. Required.
-  final Color loadingColor;
-
   /// Displays a loading indicator when set to `true`.
   final bool isLoading;
 
@@ -54,7 +50,6 @@ class CustomFilledButton extends StatelessWidget {
     required this.buttonText,
     required this.onPressed,
     required this.buttonColor,
-    required this.loadingColor,
     this.buttonTextId,
     this.icon,
     this.iconSize = 18,
@@ -86,7 +81,7 @@ class CustomFilledButton extends StatelessWidget {
                     width: 20,
                     child: CircularProgressIndicator(
                       strokeWidth: 2,
-                      color: loadingColor,
+                      color: textColor,
                     ),
                   ),
                   const SizedBox(width: 10),
