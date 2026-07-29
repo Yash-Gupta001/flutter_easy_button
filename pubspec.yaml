@@ -1,10 +1,20 @@
 name: flutter_easy_button
-description: A customizable Material 3 FilledButton with loading, icons, and disabled state support.
+description: A customizable Material 3 button package with filled and outlined styles, loading states, icons, and full customization support.
 version: 1.0.3
 
 homepage: https://github.com/Yash-Gupta001/flutter_easy_button
 repository: https://github.com/Yash-Gupta001/flutter_easy_button
 issue_tracker: https://github.com/Yash-Gupta001/flutter_easy_button/issues
+
+screenshots:
+  - description: 'Filled buttons with various styles and states'
+    path: screenshots/filled_buttons.png
+  - description: 'Outlined buttons with custom borders'
+    path: screenshots/outlined_buttons.png
+  - description: 'Loading states and full-width buttons'
+    path: screenshots/loading_states.png
+  - description: 'Real-world usage examples'
+    path: screenshots/real_world_examples.png
 
 environment:
   sdk: ^3.12.2
