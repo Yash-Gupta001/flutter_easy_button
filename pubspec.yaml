@@ -8,13 +8,9 @@ issue_tracker: https://github.com/Yash-Gupta001/flutter_easy_button/issues
 
 topics:
   - button
-  - material
   - material3
   - ui
   - widget
-  - filled-button
-  - outlined-button
-  - loading
   - customizable
 
 screenshots:
