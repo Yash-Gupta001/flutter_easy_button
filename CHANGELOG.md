@@ -15,3 +15,16 @@
 ## 1.0.2
 
 - Made textColor parameter required.
+
+## 1.0.3
+
+- Loading color issue resolved.
+
+## 1.0.4
+
+- Added `ButtonType` enum (filled, outlined).
+- Added `CustomButton` with support for both filled and outlined styles.
+- Added `CustomOutlineButton` with all CustomButton features.
+- Made `buttonType` parameter required - users must explicitly select button style.
+- Added `borderColor` and `borderWidth` parameters for outlined buttons.
+- Both button classes now support dynamic type switching.
