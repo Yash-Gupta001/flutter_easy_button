@@ -16,11 +16,8 @@
 
 - Made textColor parameter required.
 
+
 ## 1.0.3
-
-- Loading color issue resolved.
-
-## 1.0.4
 
 - Added `ButtonType` enum (filled, outlined).
 - Added `CustomButton` with support for both filled and outlined styles.
